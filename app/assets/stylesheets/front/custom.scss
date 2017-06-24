@@ -1,0 +1,24 @@
+.site-wrapper {
+  background: url('home-bg');
+}
+
+.cover {
+  min-height: 100vh;
+
+  .logo {
+    width: 100%;
+    max-width: 500px;
+    margin: 6rem 0 0;
+  }
+}
+.mastfoot {
+  margin-top: -180px;
+}
+
+@media (min-width: 426px) {
+  .cover {
+    .logo {
+      margin-top: 16rem;
+    }
+  }
+}
