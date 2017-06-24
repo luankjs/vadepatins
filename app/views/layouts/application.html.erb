@@ -11,6 +11,8 @@
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : Rails.application.secrets[:site_title] %>">
     <title><%= content_for?(:title) ? yield(:title) : Rails.application.secrets[:site_title] %></title>
 
+    <%= render 'shared/favicon' %>
+
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= csrf_meta_tags %>
   </head>

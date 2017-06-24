@@ -48,6 +48,8 @@ group :development do
   gem 'pry-remote'
   gem 'pry-stack_explorer'
   gem 'pry-rescue'
+
+  gem 'rails_real_favicon'
 end
 
 # Only Test env gems
