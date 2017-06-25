@@ -18,6 +18,9 @@ pt-BR:
         success: O usuários foi apagado com sucesso.
     controllers:
       users: Usuários
+  navigation:
+    root: Home
+    admin: Admin
 
 
   devise:

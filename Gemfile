@@ -63,6 +63,7 @@ end
 # Only Production env gems
 group :production do
   gem 'unicorn'
+  gem 'rails_12factor'
 end
 
 # Both Test and Development env gems
