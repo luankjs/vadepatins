@@ -7,7 +7,11 @@
 //= require back/app
 
 $(document).ready(function() {
-  var table = $('.dataTable').DataTable();
+  var table = $('.dataTable').DataTable({
+    "language": {
+        "url": "https://cdn.datatables.net/plug-ins/1.10.15/i18n/Portuguese-Brasil.json"
+    }
+  });
 
   // Get sidebar state from localStorage and add the proper class to body
   $('body').addClass(localStorage.getItem('sidebar-state'));

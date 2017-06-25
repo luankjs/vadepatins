@@ -1,0 +1,4 @@
+pt-BR:
+  admin:
+    controllers:
+      users: Usuários
