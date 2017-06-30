@@ -6,7 +6,7 @@ module Admin
     # GET /users
     # GET /users.json
     def index
-      @users = User.all
+      @users = User.all.includes(:profile)
     end
 
     # GET /users/1
@@ -17,6 +17,7 @@ module Admin
     # GET /users/new
     def new
       @user = User.new
+      @profile = @user.profile || Profile.new
       @url = admin_users_path
     end
 
@@ -64,11 +65,13 @@ module Admin
     # Use callbacks to share common setup or constraints between actions.
     private def set_user
       @user = User.find(params[:id])
+      @profile = @user.profile || Profile.new
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     private def user_params
-      params.require(:user).permit(:email, :password, :password_confirmation, :name)
+      params.require(:user).permit(:email, :password, :password_confirmation, :name,
+        profile_attributes: [:name, :last_name, :nickname, :document, :date_of_birth, :phone])
     end
   end
 end

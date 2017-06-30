@@ -1,9 +1,13 @@
 class User < ApplicationRecord
+  has_one :profile
+
   enum role: [:user, :vip, :admin]
   after_initialize :set_default_role, :if => :new_record?
 
-  validates :name, presence: true
+  # validates :name, presence: true
   validates :email, uniqueness: true, email: true
+
+  accepts_nested_attributes_for :profile, allow_destroy: true
 
   def set_default_role
     self.role ||= :user

@@ -1,23 +1,56 @@
-<div class="form-group">
-  <label for="user_email">Email</label>
-  <%= f.email_field :email, class: "form-control", placeholder: "Email", required: true %>
-  <span class="help-block"><i>* Este campo é obrigatório</i><span>
-</div>
+<div class="row">
+  <div class="col-xs-12 col-sm-6">
+    <div class="form-group">
+      <label for="user_email">Email</label>
+      <%= f.email_field :email, class: "form-control", placeholder: "Email", required: true %>
+      <span class="help-block"><i>* Este campo é obrigatório</i><span>
+    </div>
 
-<div class="form-group">
-  <label for="user_password">Senha</label>
-  <%= f.password_field :password, class: "form-control", placeholder: "Senha", required: (@user.new_record? ? true : false) %>
-  <span class="help-block"><i>* Este campo é obrigatório (deixe em branco se estiver editando e não quiser alterar)</i><span>
-</div>
+    <div class="form-group">
+      <label for="user_password">Senha</label>
+      <%= f.password_field :password, class: "form-control", placeholder: "Senha", required: (@user.new_record? ? true : false) %>
+      <span class="help-block"><i>* Este campo é obrigatório (deixe em branco se estiver editando e não quiser alterar)</i><span>
+    </div>
 
-<div class="form-group">
-  <label for="user_confirm_password">Confirme a senha</label>
-  <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirme a senha", required: (@user.new_record? ? true : false) %>
-  <span class="help-block"><i>* Este campo é obrigatório (deixe em branco se estiver editando e não quiser alterar)</i><span>
-</div>
+    <div class="form-group">
+      <label for="user_confirm_password">Confirme a senha</label>
+      <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirme a senha", required: (@user.new_record? ? true : false) %>
+      <span class="help-block"><i>* Este campo é obrigatório (deixe em branco se estiver editando e não quiser alterar)</i><span>
+    </div>
 
-<div class="form-group">
-  <label for="user_name">Nome</label>
-  <%= f.text_field :name, class: "form-control", placeholder: "Nome", required: true %>
-  <span class="help-block"><i>* Este campo é obrigatório</i><span>
+<!--     <div class="form-group">
+      <label for="user_name">Nome</label>
+      <%= f.text_field :name, class: "form-control", placeholder: "Nome", required: true %>
+      <span class="help-block"><i>* Este campo é obrigatório</i><span>
+    </div> -->
+  </div>
+  <!-- :nickname, :document, :date_of_birth, :phone -->
+  <div class="col-xs-12 col-sm-6">
+    <%= f.fields_for :profile, @profile do |p_f| %>
+      <div class="form-group">
+        <label for="user_profile_name">Nome</label>
+        <%= p_f.text_field :name, class: "form-control", placeholder: "Nome", required: true %>
+      </div>
+      <div class="form-group">
+        <label for="user_profile_last_name">Sobrenome</label>
+        <%= p_f.text_field :last_name, class: "form-control", placeholder: "Sobrenome", required: true %>
+      </div>
+      <div class="form-group">
+        <label for="user_profile_nickname">Usuário</label>
+        <%= p_f.text_field :nickname, class: "form-control", placeholder: "Usuário", required: true %>
+      </div>
+      <div class="form-group">
+        <label for="user_profile_document">CPF</label>
+        <%= p_f.text_field :document, class: "form-control", placeholder: "CPF", required: true %>
+      </div>
+      <div class="form-group">
+        <label for="user_profile_date_of_birth">Data de Nascimento</label>
+        <%= p_f.text_field :date_of_birth, class: "form-control", placeholder: "Data de Nascimento", required: true %>
+      </div>
+      <div class="form-group">
+        <label for="user_profile_phone">Telefone</label>
+        <%= p_f.text_field :phone, class: "form-control", placeholder: "Telefone", required: true %>
+      </div>
+    <% end %>
+  </div>
 </div>
